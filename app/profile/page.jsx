@@ -61,7 +61,7 @@ const MyProfile = () => {
 
     return (
         <Profile 
-            name='Zack'
+            name={session?.user.username}
             desc="Welcome to your personalized profile page, here you'll find all prompts you've created."
             data={posts}
             handleEdit={handleEdit}
