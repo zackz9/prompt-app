@@ -2,12 +2,16 @@
 
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+
 
 import Profile from "@components/Profile";
 
 
 const MyProfile = () => {
+
+    const searchParams = useSearchParams();
+    const userName = searchParams.get("name");
 
     const router = useRouter();
 
@@ -61,7 +65,7 @@ const MyProfile = () => {
 
     return (
         <Profile 
-            name={session?.user.username}
+            name={userName}
             desc="Welcome to your personalized profile page, here you'll find all prompts you've created."
             data={posts}
             handleEdit={handleEdit}
